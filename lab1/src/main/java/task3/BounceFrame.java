@@ -11,6 +11,8 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -93,8 +95,13 @@ public class BounceFrame extends JFrame{
                 canvas.add(b);
                 
                 for (Ball ball : canvas.getBalls()) {
-                    BallThread thread = new BallThread(ball);
-                    thread.start();
+                    try {
+                        BallThread thread = new BallThread(ball);
+                        thread.start();
+                        Thread.sleep(1);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(BounceFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
             }
         });

@@ -17,21 +17,19 @@ public class Counter {
     private final static Object lock = new Object();
     private Lock lock1 = new ReentrantLock();
 
-     void increment() {
-//        synchronized (this) {
-//            counter--;
-//        }
+      void increment() {
 
-        lock1.lock();
+
+     lock1.lock();
         counter++;
-        lock1.unlock();
+       lock1.unlock();
 
 
 //        synchronized (lock) {
 //            counter++;
 //        }
 
-        //this.counter++;
+
 
     }
 
@@ -46,7 +44,7 @@ public class Counter {
 
         lock1.lock();
         counter--;
-        lock1.unlock();
+      lock1.unlock();
 
         //this.counter--;
     }

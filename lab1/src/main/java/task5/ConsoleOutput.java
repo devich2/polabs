@@ -6,6 +6,7 @@
 package task5;
 
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  *
@@ -31,7 +32,7 @@ class Printer {
         } else {
             System.out.println("-");
             if (++rowCount == 100) {
-                Thread.currentThread().interrupt();
+                Thread.currentThread().interrupt(); 
                 return;
             }
             row = 0;
@@ -114,7 +115,7 @@ public class ConsoleOutput {
 //            }
 //        });
 //        
-//       
+       
 //        first.start();
 //        second.start();
         Printer printer = new Printer();

@@ -22,7 +22,10 @@ public class Test {
                 @Override
                 public void run() {
                     for (int i = 0; i < 100000; i++) {
-                        counter.increment();
+  
+                            counter.increment();
+                  
+                        
                     }
                 }
 
@@ -33,7 +36,9 @@ public class Test {
                 @Override
                 public void run() {
                     for (int i = 0; i < 100000; i++) {
-                        counter.decrement();
+                      
+                            counter.decrement();
+                   
                     }
                 }
 
