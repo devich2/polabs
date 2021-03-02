@@ -66,26 +66,33 @@ public class Journal {
     }
 
     public void setNextMark() {
-        try {
-               //lock.lock();
             weekLoop:
             for (HashMap<Integer, Integer> marks :
                     this.weeks) {
-                    System.out.println(marks);
+                 
                 if (marks.size() == students.size()) continue;
                 for (Student s :
                         this.students) {
-                    if (marks.containsKey(s.getId())) continue;
-
-                    marks.put(s.getId(), generateMark());
+                 
+                    
+                    
+                    lock.lock();
+                    try {
+                          //  System.out.println(marks);
+                        if (marks.containsKey(s.getId())){
+                            
+                            continue;
+                        }
+                        marks.put(s.getId(), generateMark());
+                    } finally {
+                        lock.unlock();
+                    }
                     break weekLoop;
 
                 }
 
             }
-        } finally {
-                //lock.unlock();
-        }
+        
 
     }
 

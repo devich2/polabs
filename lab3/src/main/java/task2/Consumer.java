@@ -27,10 +27,7 @@ public class Consumer implements Runnable {
              number != ++maxSize;
              number = drop.take()) {
             System.out.format("MESSAGE RECEIVED: %s%n", number);
-            try {
-                Thread.sleep(random.nextInt(5000));
-            } catch (InterruptedException ignored) {
-            }
+          
         }
     }
 }

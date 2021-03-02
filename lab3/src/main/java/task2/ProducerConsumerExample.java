@@ -12,7 +12,7 @@ package task2;
 
 public class ProducerConsumerExample {
     public static void main(String[] args) {
-        int size = 5;
+        int size = 100;
 
         Drop drop = new Drop();
         (new Thread(new Producer(drop, size))).start();

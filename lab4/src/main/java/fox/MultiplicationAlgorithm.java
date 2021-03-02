@@ -3,15 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package task1;
+package fox;
 
 /**
  *
  * @author Devid
  */
-public interface IBank {
-    int size();
-
-    void transfer(int from, int to, int amount);
-void test();
+public interface MultiplicationAlgorithm {
+    String getName();
+    void multiplyMatrix(int[][] firstMatrix, int[][] secondMatrix, int[][] resultMatrix);
 }

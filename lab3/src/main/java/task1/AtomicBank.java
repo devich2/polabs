@@ -29,23 +29,22 @@ public class AtomicBank implements IBank {
 
     public void transfer(int from, int to, int amount) {
         accounts.getAndAdd(from, -amount);
+       
         accounts.getAndAdd(to, amount);
+       
 
-        ntransacts.incrementAndGet();
-
-        long transactionNum = ntransacts.get();
-        if (transactionNum % NTEST == 0) {
-            test(transactionNum);
+            if (ntransacts.incrementAndGet() % NTEST == 0) {
+            test();
         }
-
+      
     }
 
-    public void test(long transactionNum) {
+    public void test() {
         int sum = 0;
         for (int i = 0; i < accounts.length(); i++) {
             sum += accounts.get(i);
         }
-        System.out.println("Transactions:" + transactionNum
+        System.out.println("Transactions:" + ntransacts.get()
                 + " Sum: " + sum);
     }
 

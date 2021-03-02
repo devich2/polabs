@@ -31,10 +31,7 @@ public class Producer implements Runnable {
 
         for (int number : numbers) {
             drop.put(number);
-            try {
-                Thread.sleep(random.nextInt(5000));
-            } catch (InterruptedException ignored) {
-            }
+           
         }
         drop.put(numbers.length);
     }
