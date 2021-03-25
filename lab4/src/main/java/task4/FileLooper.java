@@ -55,7 +55,7 @@ public class FileLooper extends RecursiveAction {
 
         for (String word : themeWords) {
             if (fileContent.contains(word)) {
-                this.resultFileNames.add(file.getName());
+                this.resultFileNames.add(file.getAbsolutePath());
             }
         }
 

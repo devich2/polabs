@@ -31,9 +31,9 @@ public class Test {
     public static void main(String[] args) throws IOException {
         //testWordsLength();
         //testWordsLengthCompare();
-        testMatrixMultiplication();
+        //testMatrixMultiplication();
         //testCommonWords();
-        //testFilesSearch();
+        testFilesSearch();
     }
 
     private static void testWordsLength() throws IOException {
@@ -101,8 +101,8 @@ public class Test {
         MultiplicationAlgorithm forkJoinFox = new FoxForkJoinAlgorithm();
 
         Map<Integer, MatrixResult> map = new TreeMap<>();
-        for (int matrixSize = 200; matrixSize <= 2000; matrixSize += 200) {
-        
+        for (int matrixSize = 200; matrixSize <= 1000; matrixSize += 100) {
+       
             MatrixResult result = new MatrixResult(matrixSize);
             useAlgo(usualFox, matrixSize, result);
             System.gc();
@@ -131,8 +131,8 @@ public class Test {
 
      }
       private static void useAlgo(MultiplicationAlgorithm algo, int matrixSize, MatrixResult result) {
-//        System.out.printf("Executing %s algorithm\n", algo.getName());
-//        System.out.printf("Creating matrices with size: %d\n", matrixSize);
+       System.out.printf("Executing %s algorithm\n", algo.getName());
+        System.out.printf("Creating matrices with size: %d\n", matrixSize);
         int[][] aMatrix = MultiplicationUtils.generateRandomMatrix(matrixSize, matrixSize);
         int[][] bMatrix = MultiplicationUtils.generateRandomMatrix(matrixSize, matrixSize);
 
@@ -150,13 +150,13 @@ public class Test {
         } else {
             result.setForkJoinDuration(difference);
         }
-//        System.out.printf("Time taken: %dms\n", difference);
+        System.out.printf("Time taken: %dms\n", difference);
 
 //        MatrixHelper.printMatrix(result.getMatrix());
     }
     private static void testCommonWords() throws IOException {
-        String firstText = "C:\\Users\\Devid\\Desktop\\paral\\hungergames1.txt";
-        String secondText = "C:\\Users\\Devid\\Desktop\\paral\\hungergames3.txt";
+        String firstText = "C:\\Users\\Devid\\Desktop\\paral\\1.txt";
+        String secondText = "C:\\Users\\Devid\\Desktop\\paral\\2.txt";
 
         List<String> commonWords = CommonWordsTask.commonWords(TextUtils.readTextFromFileByLines(firstText),
                 TextUtils.readTextFromFileByLines(secondText));
@@ -165,7 +165,7 @@ public class Test {
     }
 
     private static void testFilesSearch() {
-        String fileName = "D:\\forkjoinfolder";
+        String fileName = "C:\\Users\\Devid\\Desktop\\forkjoinfolder";
 
         List<String> filesNames = new ArrayList<>();
         FileLooper.showFiles(new File(fileName).listFiles(), filesNames);
